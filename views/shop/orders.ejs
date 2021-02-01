@@ -1,0 +1,74 @@
+<%- include('../includes/head.ejs')%>
+        <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/css/style.css">
+    </head>
+
+    <body>
+        <div class="page-wrapper">
+
+            <!-- Start nav -->
+            <%- include('../includes/customer-nav-2.ejs')%>
+            <!-- *********************************************************************** -->
+
+            <main class="main">
+                <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+                    <div class="container">
+                        <h1 class="page-title">Orders<span>Shop</span></h1>
+                    </div>
+                </div>
+                <nav aria-label="breadcrumb" class="breadcrumb-nav">
+                    <div class="container">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Shop</a></li>
+                            <li class="breadcrumb-item"><a href="/products">Products</a></li>
+                            <li class="breadcrumb-item"><a href="/cart">Shopping Cart</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Orders</li>
+                        </ol>
+                    </div><!-- End .container -->
+                </nav>
+
+                <div class="page-content">
+                    <div class="cart">
+                        <div class="container">
+                            <div class="row">
+                                <table class="table table-cart table-mobile">
+                                    <thead>
+                                        <tr>
+                                            <th>Orders</th>
+                                            <th>Products</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <% if (orders.length <= 0) { %>
+                                        <h1>Nothing there!</h1>
+                                    <% } else { %>
+                                            <% orders.forEach(order => { %>
+                                            <tbody>
+
+                                                <th>Order - # <%= order._id %></th>
+                                                <th><% order.products.forEach(p => { %>
+                                                        <li class="orders__products-item"><%= p.product.title %> (<%= p.quantity %>)</li>
+                                                    <% }); %></th>
+                                                <th><%= order.status %></th>
+                                            </tbody>
+                                        <% }); %>
+                                    <% } %>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+
+        <script src="/assets/js/jquery.min.js"></script>
+        <script src="/assets/js/bootstrap.bundle.min.js"></script>
+        <script src="/assets/js/jquery.hoverIntent.min.js"></script>
+        <script src="/assets/js/jquery.waypoints.min.js"></script>
+        <script src="/assets/js/superfish.min.js"></script>
+        <script src="/assets/js/owl.carousel.min.js"></script>
+        <script src="/assets/js/bootstrap-input-spinner.js"></script>
+        <script src="/assets/js/main.js"></script>
+
+    <%- include('../includes/end.ejs')%>

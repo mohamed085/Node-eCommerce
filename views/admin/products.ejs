@@ -1,0 +1,95 @@
+<%- include('../includes/head.ejs')%>
+        <link rel="stylesheet" href="/assets/css/plugins/owl-carousel/owl.carousel.css">
+        <link rel="stylesheet" href="/assets/css/plugins/magnific-popup/magnific-popup.css">
+        <link rel="stylesheet" href="/assets/css/plugins/jquery.countdown.css">
+        <link rel="stylesheet" href="/assets/css/style.css">
+        <link rel="stylesheet" href="/assets/css/skins/skin-demo-5.css">
+        <link rel="stylesheet" href="/assets/css/demos/demo-5.css">
+        <link rel="stylesheet" href="/assets/css/main/index.css">
+    </head>
+
+    <body>
+    <div class="page-wrapper">
+        <!-- Start nav -->
+        <%- include('../includes/admin-nav-2.ejs')%>
+        <!-- *********************************************************************** -->
+
+        <!-- Start main -->
+        <main class="main">
+
+
+            <!-- Start Products Section -->
+            <div class="container mt-5 mb-5">
+                <div class="heading heading-center mb-3">
+                    <h2 class="title">Trendy Products</h2><!-- End .title -->
+                </div>
+                <div class="product-items">
+                    <% for (let product of products) { %>
+                        <div class="product product-2">
+                            <figure class="product-media">
+                                <a href="/products/<%= product._id %>">
+                                    <img src="/<%=product.imageURL1%>" alt="Product image" class="product-image">
+                                    <img src="/<%= product.imageURL2 %>" alt="Product image" class="product-image-hover">
+                                </a>
+
+                                <div class="product-action product-action-transparent d-flex">
+                                    <div style="width: 49%">
+                                        <form action="/admin/delete-product" method="POST">
+                                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                            <input type="hidden" value="<%= product._id %>" name="productId">
+                                            <button class="btn" type="submit">Delete</button>
+                                        </form>
+                                    </div>
+                                    <div style="width: 49%">
+                                        <form action="/admin/edit-product/<%= product._id %>?edit=true" method="GET">
+                                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                            <button class="btn" type="submit">Update</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </figure>
+
+                            <div class="product-body">
+                                <div class="product-cat">
+                                    <a href="/"><%=product.category%></a>
+                                </div>
+                                <h3 class="product-title">
+                                    <a href="/products/<%= product._id %>"><%=product.title%></a></h3>
+                                <div class="product-price">
+                                    $<%=product.price%>
+                                </div>
+
+                                <div class="product-nav product-nav-dots">
+                                    <a href="/" class="active" style="background: #2d272b;"><span class="sr-only">Color name</span></a>
+                                    <a href="/" style="background: #8f957d;"><span class="sr-only">Color name</span></a>
+                                </div><!-- End .product-nav -->
+                            </div>
+                        </div>
+                    <% } %>
+
+                </div>
+            </div><!-- End .container -->
+            <!-- *********************************************************************** -->
+
+
+        </main>
+        <!-- *********************************************************************** -->
+
+
+    </div>
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/jquery.hoverIntent.min.js"></script>
+    <script src="/assets/js/jquery.waypoints.min.js"></script>
+    <script src="/assets/js/superfish.min.js"></script>
+    <script src="/assets/js/owl.carousel.min.js"></script>
+    <script src="/assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/js/jquery.plugin.min.js"></script>
+    <script src="/assets/js/jquery.countdown.min.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/demos/demo-5.js"></script>
+
+    <%- include('../includes/end.ejs')%>
+

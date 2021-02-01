@@ -1,0 +1,79 @@
+    <%- include('../includes/head.ejs')%>
+
+        <link rel="stylesheet" href="/assets/css/style.css">
+        <link rel="stylesheet" href="/assets/css/plugins/nouislider/nouislider.css">
+        <link rel="stylesheet" href="/assets/css/add-product.css">
+    </head>
+
+    <body>
+        <div class="page-wrapper">
+            <!-- Start nav -->
+            <%- include('../includes/admin-nav-2.ejs')%>
+            <!-- *********************************************************************** -->
+
+            <main class="main">
+                <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+                    <div class="container">
+                        <h1 class="page-title">Add new product<span>Admin</span></h1>
+                    </div><!-- End .container -->
+                </div><!-- End .page-header -->
+                <div class="add-product mb-5">
+                    <div class="container mt-5">
+                        <form method="POST" action="/admin/add-product" enctype="multipart/form-data">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <div class="p-3">
+                                <label for="category">Main category</label>
+                                <input type="text" name="mainCategory" id="category">
+                            </div>
+                            <div class="p-3">
+                                <label for="category">Category</label>
+                                <input type="text" name="category" id="category">
+                            </div>
+                            <div class="p-3">
+                                <label for="title">Title</label>
+                                <input type="text" name="title" id="title">
+                            </div>
+                            <div class="p-3">
+                                <label for="description">Description</label>
+                                <input type="text" name="description" id="description">
+                            </div>
+                            <div class="p-3">
+                                <label for="price">Price</label>
+                                <input type="number" step="0.01" name="price" id="price">
+                            </div>
+                            <div class="p-3">
+                                <label for="imageURL1">Image 1</label>
+                                <input type="file" name="imageURL1" id="imageURL1">
+                            </div>
+                            <div class="p-3">
+                                <label for="imageURL1">Image 2</label>
+                                <input type="file" name="imageURL2" id="imageURL1">
+                            </div>
+                            <div class="p-3">
+                                <label for="imageURL1">Image 3</label>
+                                <input type="file" name="imageURL3" id="imageURL1">
+                            </div>
+                            <div class="p-3">
+                                <label for="imageURL1">imageURL</label>
+                                <input type="file" name="imageURL4" id="imageURL1">
+                            </div>
+                            <button type="submit" class="m-4">Add product</button>
+                        </form>
+                    </div>
+                </div>
+
+
+
+            </main><!-- End .main -->
+            <!-- *********************************************************************** -->
+
+        </div>
+
+
+        <script src="/assets/js/jquery.min.js"></script>
+        <script src="/assets/js/bootstrap.bundle.min.js"></script>
+        <script src="/assets/js/jquery.hoverIntent.min.js"></script>
+        <script src="/assets/js/jquery.waypoints.min.js"></script>
+        <script src="/assets/js/main.js"></script>
+
+    <%- include('../includes/end.ejs')%>

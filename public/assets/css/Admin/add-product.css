@@ -1,0 +1,25 @@
+.add-product{
+    text-align: center;
+    margin: 60px 0;
+}
+.add-product h2{
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 30px;
+}
+.add-product .form-control{
+    border: none;
+}
+.add-product .form-control label{
+    font-family: 'Yusei Magic', sans-serif;
+    width: 100px;
+}
+.add-product .form-control input{
+    width: 850px;
+    border: none;
+    border-bottom: 1px solid #292b2c;
+    padding: 5px;
+}
+.add-product .btn{
+    margin: 30px 0;
+    width: 500px;
+}

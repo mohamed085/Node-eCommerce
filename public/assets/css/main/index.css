@@ -1,0 +1,31 @@
+main .brands-border .brand-items a img{
+    margin: 0 20px;
+}
+main .container .product-items{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    padding: 10px 0;
+}
+main .product-items .product-action .btn-product button{
+    background: none;
+    border: none;
+    font: inherit;
+    color: #DDDDDD;
+}
+main .product-details-action .btn-product button{
+    background: none;
+    border: none;
+    font: inherit;
+    color: #cc9966;
+}
+main .product-details-action .btn-product button:hover{
+    color: white;
+}
+main .products .product-media .product-action button{
+    background: none;
+    border: none;
+    font: inherit;
+    color: #cc9966;
+}

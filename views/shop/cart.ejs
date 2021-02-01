@@ -1,0 +1,129 @@
+<%- include('../includes/head.ejs')%>
+        <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+        <!-- Main CSS File -->
+        <link rel="stylesheet" href="/assets/css/style.css">
+    </head>
+
+    <body>
+        <div class="page-wrapper">
+
+            <!-- Start nav -->
+            <%- include('../includes/customer-nav-2.ejs')%>
+            <!-- *********************************************************************** -->
+
+
+            <main class="main">
+                <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+                    <div class="container">
+                        <h1 class="page-title">Shopping Cart<span>Shop</span></h1>
+                    </div>
+                </div>
+                <nav aria-label="breadcrumb" class="breadcrumb-nav">
+                    <div class="container">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Shop</a></li>
+                            <li class="breadcrumb-item"><a href="/products">Products</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
+                        </ol>
+                    </div><!-- End .container -->
+                </nav>
+
+                <div class="page-content">
+                    <div class="cart">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-9">
+                                    <table class="table table-cart table-mobile">
+                                        <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Price</th>
+                                            <th>Quantity</th>
+                                            <th>Total</th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+                                            <% if (products.length > 0 ) {%>
+                                                <tbody>
+                                            <% products.forEach(product  => { %>
+                                                <tr>
+                                                    <td class="product-col">
+                                                        <div class="product">
+                                                            <h3 class="product-title">
+                                                                <a href="/products/<%=product.productId._id%>"><%=product.productId.title%></a>
+                                                            </h3>
+                                                        </div>
+                                                    </td>
+                                                    <td class="price-col">$<%=product.productId.price%></td>
+                                                    <td class="quantity-col">
+                                                        <div class="cart-product-quantity">
+                                                            <%=product.quantity%>
+                                                        </div>
+                                                    </td>
+                                                    <td class="total-col">$<%=product.productId.price*product.quantity%></td>
+                                                    <td class="remove-col">
+                                                        <form action="/cart-delete-item" method="POST">
+                                                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                                            <input type="hidden" value="<%=product.productId._id%>" name="productId">
+                                                            <button type="submit" class="btn-remove"><i class="icon-close"></i></button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            <% }) %>
+                                            </tbody>
+                                            <% } %>
+                                    </table>
+
+                                    <div class="cart-bottom">
+
+                                    </div>
+                                </div>
+                                <aside class="col-lg-3">
+                                    <div class="summary summary-cart">
+                                        <h3 class="summary-title">Cart Total</h3><!-- End .summary-title -->
+
+                                        <table class="table table-summary">
+                                            <tbody>
+                                            <tr class="summary-subtotal">
+                                                <td>Subtotal:</td>
+                                                <td>$160.00</td>
+                                            </tr>
+
+                                            <tr class="summary-shipping-estimate">
+                                                <td>Estimate for Your Country<br> <a href="/orders">Change address</a></td>
+                                                <td>&nbsp</td>
+                                            </tr>
+
+                                            <tr class="summary-total">
+                                                <td>Total:</td>
+                                                <td>$</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <form action="/create-order" method="POST">
+                                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                            <button class="btn btn-outline-primary-2 btn-order btn-block">PROCEED TO CHECKOUT</button>
+
+                                        </form>
+                                    </div>
+
+                                    <a href="/products" class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE SHOPPING</span><i class="icon-refresh"></i></a>
+                                </aside>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+        </div>
+
+        <script src="/assets/js/jquery.min.js"></script>
+        <script src="/assets/js/bootstrap.bundle.min.js"></script>
+        <script src="/assets/js/jquery.hoverIntent.min.js"></script>
+        <script src="/assets/js/jquery.waypoints.min.js"></script>
+        <script src="/assets/js/superfish.min.js"></script>
+        <script src="/assets/js/owl.carousel.min.js"></script>
+        <script src="/assets/js/bootstrap-input-spinner.js"></script>
+        <script src="/assets/js/main.js"></script>
+    <%- include('../includes/end.ejs')%>

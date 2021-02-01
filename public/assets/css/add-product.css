@@ -1,0 +1,19 @@
+.add-product label{
+    width: 10%;
+}
+.add-product input{
+    width: 87%;
+    border: none;
+    border-bottom: 1px solid #DDDDDD;
+    padding: 5px;
+}
+.add-product button{
+    padding: 5px 40px;
+    color: #cc9966;
+    border-radius: 10px;
+    border: 1px solid #cc9966;
+}
+.add-product button:hover{
+    color: whitesmoke;
+    background-color: #cc9966;
+}

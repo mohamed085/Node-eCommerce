@@ -1,0 +1,566 @@
+<%- include('../includes/head.ejs')%>
+        <link rel="stylesheet" href="/assets/css/plugins/owl-carousel/owl.carousel.css">
+        <link rel="stylesheet" href="/assets/css/plugins/magnific-popup/magnific-popup.css">
+        <link rel="stylesheet" href="/assets/css/plugins/jquery.countdown.css">
+        <link rel="stylesheet" href="/assets/css/style.css">
+        <link rel="stylesheet" href="/assets/css/skins/skin-demo-5.css">
+        <link rel="stylesheet" href="/assets/css/demos/demo-5.css">
+        <link rel="stylesheet" href="assets/css/demos/demo-18.css">
+        <link rel="stylesheet" href="/assets/css/main/index.css">
+    </head>
+
+    <body>
+        <div class="page-wrapper">
+            <!-- Start nav -->
+            <% if (isAuthenticated && isAdmin) {%>
+                <%- include('../includes/admin-nav.ejs')%>
+            <% } else { %>
+                <%- include('../includes/customer-nav.ejs')%>
+            <% } %>
+            <!-- *********************************************************************** -->
+
+            <!-- Start main -->
+            <main class="main">
+
+                <!-- Start slider -->
+                <div class="intro-slider-container mb-0">
+                    <div class="intro-slider owl-carousel owl-theme owl-nav-inside owl-light" data-toggle="owl" data-owl-options='{"nav": false, "dots": false}'>
+                        <div class="intro-slide" style="background-image: url(assets/images/slider/slide-1.jpg);">
+                            <div class="container intro-content text-center">
+                                <h3 class="intro-subtitle text-white">Don’t Miss</h3><!-- End .h3 intro-subtitle -->
+                                <h1 class="intro-title text-white">Mystery Deals</h1><!-- End .intro-title -->
+                                <div class="intro-text text-white">Online Only</div><!-- End .intro-text -->
+                                <a href="/products" class="btn btn-primary">Discover NOW</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- *********************************************************************** -->
+
+                <!-- Start Brands Section -->
+                <div class="brands-border mt-5 mb-5">
+                    <div class="container brand-items d-flex ">
+                        <a href="/" class="brand">
+                            <img src="assets/images/brands/1.png" alt="Brand Name">
+                        </a>
+                        <a href="/" class="brand">
+                            <img src="assets/images/brands/2.png" alt="Brand Name">
+                        </a>
+                        <a href="/" class="brand">
+                            <img src="assets/images/brands/3.png" alt="Brand Name">
+                        </a>
+                        <a href="/" class="brand">
+                            <img src="assets/images/brands/4.png" alt="Brand Name">
+                        </a>
+                        <a href="/" class="brand">
+                            <img src="assets/images/brands/5.png" alt="Brand Name">
+                        </a>
+                        <a href="/" class="brand">
+                            <img src="assets/images/brands/6.png" alt="Brand Name">
+                        </a>
+                        <a href="/" class="brand">
+                            <img src="assets/images/brands/7.png" alt="Brand Name">
+                        </a>
+                        <a href="/" class="brand">
+                            <img src="assets/images/brands/8.png" alt="Brand Name">
+                        </a>
+                        <a href="/" class="brand">
+                            <img src="assets/images/brands/9.png" alt="Brand Name">
+                        </a>
+                    </div>
+                </div>
+                <!-- *********************************************************************** -->
+
+                <!-- Start Trends Section -->
+                <div class="container banners">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="banner banner-hover">
+                                <a href="#">
+                                    <img src="/assets/images/banners/banner-1.jpg" alt="Banner">
+                                </a>
+
+                                <div class="banner-content">
+                                    <h3 class="banner-title text-white"><a href="#">Sweatshirts & Hoodies</a></h3><!-- End .banner-title -->
+                                    <a href="#" class="banner-link">Shop Now <i class="icon-long-arrow-right"></i></a>
+                                </div><!-- End .banner-content -->
+                            </div><!-- End .banner -->
+                        </div><!-- End .col-lg-6 -->
+
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="banner banner-hover">
+                                <a href="#">
+                                    <img src="/assets/images/banners/banner-2.jpg" alt="Banner">
+                                </a>
+
+                                <div class="banner-content">
+                                    <h3 class="banner-title text-white"><a href="#">Men’s Jacket</a></h3><!-- End .banner-title -->
+                                    <a href="#" class="banner-link">Shop Now <i class="icon-long-arrow-right"></i></a>
+                                </div><!-- End .banner-content -->
+                            </div><!-- End .banner -->
+                        </div><!-- End .col-sm-6 -->
+
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="banner banner-hover">
+                                <a href="#">
+                                    <img src="/assets/images/banners/banner-3.jpg" alt="Banner">
+                                </a>
+
+                                <div class="banner-content">
+                                    <h3 class="banner-title text-white"><a href="#">Women’s jackets</a></h3><!-- End .banner-title -->
+                                    <a href="#" class="banner-link">Shop Now <i class="icon-long-arrow-right"></i></a>
+                                </div><!-- End .banner-content -->
+                            </div><!-- End .banner -->
+
+                            <div class="banner banner-hover">
+                                <a href="#">
+                                    <img src="/assets/images/banners/banner-4.jpg" alt="Banner">
+                                </a>
+
+                                <div class="banner-content">
+                                    <h3 class="banner-title text-white"><a href="#">Accessories</a></h3><!-- End .banner-title -->
+                                    <a href="#" class="banner-link">Shop Now <i class="icon-long-arrow-right"></i></a>
+                                </div><!-- End .banner-content -->
+                            </div><!-- End .banner -->
+                        </div><!-- End .col-sm-6 -->
+                    </div><!-- End .row -->
+                </div><!-- End .container -->
+
+                <!-- *********************************************************************** -->
+
+                <!-- Start Products Section -->
+                <div class="container mt-5 mb-5">
+                    <div class="heading heading-center mb-3">
+                        <h2 class="title">NEW ARRIVALS</h2><!-- End .title -->
+                    </div>
+                    <div class="product-items">
+                        <% for (let product of products) { %>
+                        <div class="product product-2">
+                            <figure class="product-media">
+                                <a href="/products/<%=product._id%>">
+                                    <img src="/<%=product.imageURL1%>" alt="Product image" class="product-image">
+                                    <img src="/<%=product.imageURL2%>" alt="Product image" class="product-image-hover">
+                                </a>
+                                <% if (isAuthenticated && !isAdmin) {%>
+
+                                <!-- Add to wishlist -->
+                                <div class="product-action-vertical">
+                                    <a href="/" class="btn-product-icon btn-wishlist btn-expandable" title="Add to wishlist"><span>add to wishlist</span></a>
+                                </div>
+
+                                <!-- Add to cart -->
+                                <div class="product-action product-action-transparent">
+                                    <form action="/cart" class="btn-product btn-cart d-flex" method="POST">
+                                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                        <input type="hidden" name="productId" value="<%= product._id %>">
+                                        <span>
+                                            <button type="submit">Add to Cart</button>
+                                        </span>
+                                    </form>
+                                </div>
+
+                                <% } %>
+
+                            </figure>
+
+                            <div class="product-body">
+                                <div class="product-cat">
+                                    <form action="/products-category" method="post">
+                                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                        <input type="hidden" name="category" value="<%=product.category%>">
+                                        <button type="submit" style="border: none; background: none">
+                                            <a><%=product.category%></a>
+                                        </button>
+                                    </form>
+                                </div>
+                                <h3 class="product-title">
+                                    <a href="/products/<%= product._id %>"><%=product.title%></a></h3>
+                                <div class="product-price">
+                                    $<%=product.price%>
+                                </div>
+
+                                <div class="product-nav product-nav-dots">
+                                    <a href="/" class="active" style="background: #2d272b;"><span class="sr-only">Color name</span></a>
+                                    <a href="/" style="background: #8f957d;"><span class="sr-only">Color name</span></a>
+                                </div><!-- End .product-nav -->
+                            </div>
+                        </div>
+                        <% } %>
+                    </div>
+                </div><!-- End .container -->
+                <!-- *********************************************************************** -->
+
+                <!-- Start Video Section -->
+                <div class="video-banner video-banner-bg bg-image text-center mt-5 mb-5" style="background-image: url(assets/images/bg-2.jpg)">
+                    <div class="container">
+                        <h3 class="video-banner-title h1 text-white"><span>New Collection</span><strong>Winter’19 <i>/</i> Spring’20</strong></h3><!-- End .video-banner-title -->
+                        <a href="https://www.youtube.com/watch?v=vBPgmASQ1A0" class="btn-video btn-iframe"><i class="icon-play"></i></a>
+                    </div>
+                </div>
+                <!-- *********************************************************************** -->
+
+
+                <div class="pt-6 pb-6 mt-5 mb-5" style="background-color: #fff;">
+                    <div class="container">
+                        <div class="banner-set">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="banner-set-content text-center">
+                                        <div class="set-content-wrapper">
+                                            <h4>Special</h4>
+                                            <h2>Refine Your Style.</h2>
+
+                                            <p>Get on our exclusive email list and be the first to hear about sales, coupons, new arrivals and more! </p>
+
+                                            <div class="banner-set-products">
+                                                <div class="row">
+                                                    <div class="products">
+                                                        <div class="col-6">
+                                                            <div class="product product-2 text-center">
+                                                                <figure class="product-media">
+                                                                    <a href="/products">
+                                                                        <img src="/assets/images/products/product-13.jpg" alt="Product image" class="product-image">
+                                                                    </a>
+                                                                </figure>
+
+                                                                <div class="product-body">
+                                                                    <h3 class="product-title"><a href="/products">Rib-knit cardigan</a></h3><!-- End .product-title -->
+                                                                    <div class="product-price">
+                                                                        $24.99
+                                                                    </div><!-- End .product-price -->
+                                                                </div><!-- End .product-body -->
+                                                            </div><!-- End .product -->
+                                                        </div><!-- End .col-sm-6 -->
+
+                                                        <div class="col-6">
+                                                            <div class="product product-2 text-center">
+                                                                <figure class="product-media">
+                                                                    <a href="/products">
+                                                                        <img src="/assets/images/products/product-14.jpg" alt="Product image" class="product-image">
+                                                                    </a>
+                                                                </figure><!-- End .product-media -->
+
+                                                                <div class="product-body">
+                                                                    <h3 class="product-title"><a href="/products">Linen-blend trousers</a></h3><!-- End .product-title -->
+                                                                    <div class="product-price">
+                                                                        $19.99
+                                                                    </div><!-- End .product-price -->
+                                                                </div><!-- End .product-body -->
+                                                            </div><!-- End .product -->
+                                                        </div><!-- End .col-sm-6 -->
+                                                    </div>
+                                                </div><!-- End .row -->
+                                            </div><!-- End .banner-set-products -->
+                                        </div><!-- End .set-content-wrapper -->
+                                    </div><!-- End .banner-set-content -->
+                                </div><!-- End .col-lg-6 -->
+                                <div class="col-lg-6">
+                                    <div class="banner-set-image banner-border-hover">
+                                        <a href="#">
+                                            <img src="assets/images/banners/banner-6.jpg" alt="banner">
+                                        </a>
+                                        <div class="banner-content">
+                                            <h3 class="banner-title"><a href="#"><span>Casual basics and<br>trendy key pieces.</span></a></h3><!-- End .banner-title -->
+                                            <h4 class="banner-subtitle">in this look</h4>
+                                            <h4 class="banner-detail">• Rib-knit cardigan <br>• Linen-blend paper bag trousers</h4>
+                                            <h4 class="banner-price">$19.99 - $48.00</h4>
+                                            <a href="#" class="btn btn-outline-primary-2 banner-link">buy all</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Start Shop Contact Section -->
+                <div class="container ">
+                    <div class="cta cta-separator mb-5">
+                        <div class="row">
+                            <div class="cta-wrapper cta-text text-center">
+                                <h3 class="cta-title">Shop Social</h3><!-- End .cta-title -->
+                                <p class="cta-desc">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. </p><!-- End .cta-desc -->
+
+                                <div class="social-icons social-icons-colored justify-content-center">
+                                    <a href="#" class="social-icon social-facebook" title="Facebook" target="_blank"><i class="icon-facebook-f"></i></a>
+                                    <a href="#" class="social-icon social-twitter" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
+                                    <a href="#" class="social-icon social-instagram" title="Instagram" target="_blank"><i class="icon-instagram"></i></a>
+                                    <a href="#" class="social-icon social-youtube" title="Youtube" target="_blank"><i class="icon-youtube"></i></a>
+                                    <a href="#" class="social-icon social-pinterest" title="Pinterest" target="_blank"><i class="icon-pinterest"></i></a>
+                                </div><!-- End .soial-icons -->
+                            </div><!-- End .cta-wrapper -->
+
+                        </div><!-- End .row -->
+                    </div><!-- End .cta -->
+                </div><!-- End .container -->
+
+
+                <!-- Start Shop Instagram Section -->
+                <div class="bg-lighter pt-7 pb-4 mt-5 mb-5" style="background-color: #fafafa;">
+                    <div class="container">
+                        <div class="instagram-feed-container">
+                            <div class="row">
+                                <div class="feed-col">
+                                    <div class="instagram-feed">
+                                        <img src="assets/images/instagram/1.jpg" alt="img">
+
+                                        <div class="instagram-feed-content">
+                                            <a href="#"><i class="icon-heart-o"></i>387</a>
+                                            <a href="#"><i class="icon-comments"></i>45</a>
+                                        </div><!-- End .instagram-feed-content -->
+                                    </div><!-- End .instagram-feed -->
+                                </div><!-- End .feed-col -->
+
+                                <div class="feed-col">
+                                    <div class="instagram-feed">
+                                        <img src="assets/images/instagram/2.jpg" alt="img">
+
+                                        <div class="instagram-feed-content">
+                                            <a href="#"><i class="icon-heart-o"></i>691</a>
+                                            <a href="#"><i class="icon-comments"></i>87</a>
+                                        </div><!-- End .instagram-feed-content -->
+                                    </div><!-- End .instagram-feed -->
+                                </div><!-- End .feed-col -->
+
+                                <div class="feed-col feed-col-title">
+                                    <div class="instagram-feed-title">
+                                        <i class="icon-instagram"></i>
+                                        <p>@Molla_store <br>on instagram</p>
+                                        <a href="#">FOLLOW</a>
+                                    </div><!-- End .instagram-feed-title -->
+                                </div><!-- End .feed-col -->
+
+                                <div class="feed-col">
+                                    <div class="instagram-feed">
+                                        <img src="assets/images/instagram/3.jpg" alt="img">
+
+                                        <div class="instagram-feed-content">
+                                            <a href="#"><i class="icon-heart-o"></i>321</a>
+                                            <a href="#"><i class="icon-comments"></i>54</a>
+                                        </div><!-- End .instagram-feed-content -->
+                                    </div><!-- End .instagram-feed -->
+                                </div><!-- End .feed-col -->
+
+                                <div class="feed-col">
+                                    <div class="instagram-feed">
+                                        <img src="assets/images/instagram/4.jpg" alt="img">
+
+                                        <div class="instagram-feed-content">
+                                            <a href="#"><i class="icon-heart-o"></i>44</a>
+                                            <a href="#"><i class="icon-comments"></i>55</a>
+                                        </div><!-- End .instagram-feed-content -->
+                                    </div><!-- End .instagram-feed -->
+                                </div><!-- End .feed-col -->
+
+                                <div class="feed-col">
+                                    <div class="instagram-feed">
+                                        <img src="assets/images/instagram/5.jpg" alt="img">
+
+                                        <div class="instagram-feed-content">
+                                            <a href="#"><i class="icon-heart-o"></i>128</a>
+                                            <a href="#"><i class="icon-comments"></i>99</a>
+                                        </div><!-- End .instagram-feed-content -->
+                                    </div><!-- End .instagram-feed -->
+                                </div><!-- End .feed-col -->
+
+                                <div class="feed-col">
+                                    <div class="instagram-feed">
+                                        <img src="assets/images/instagram/6.jpg" alt="img">
+
+                                        <div class="instagram-feed-content">
+                                            <a href="#"><i class="icon-heart-o"></i>433</a>
+                                            <a href="#"><i class="icon-comments"></i>25</a>
+                                        </div><!-- End .instagram-feed-content -->
+                                    </div><!-- End .instagram-feed -->
+                                </div><!-- End .feed-col -->
+
+                                <div class="feed-col">
+                                    <div class="instagram-feed">
+                                        <img src="assets/images/instagram/7.jpg" alt="img">
+
+                                        <div class="instagram-feed-content">
+                                            <a href="#"><i class="icon-heart-o"></i>588</a>
+                                            <a href="#"><i class="icon-comments"></i>44</a>
+                                        </div><!-- End .instagram-feed-content -->
+                                    </div><!-- End .instagram-feed -->
+                                </div><!-- End .feed-col -->
+
+                                <div class="feed-col">
+                                    <div class="instagram-feed">
+                                        <img src="assets/images/instagram/8.jpg" alt="img">
+
+                                        <div class="instagram-feed-content">
+                                            <a href="#"><i class="icon-heart-o"></i>87</a>
+                                            <a href="#"><i class="icon-comments"></i>23</a>
+                                        </div><!-- End .instagram-feed-content -->
+                                    </div><!-- End .instagram-feed -->
+                                </div><!-- End .feed-col -->
+
+                                <div class="feed-col">
+                                    <div class="instagram-feed">
+                                        <img src="assets/images/instagram/9.jpg" alt="img">
+
+                                        <div class="instagram-feed-content">
+                                            <a href="#"><i class="icon-heart-o"></i>87</a>
+                                            <a href="#"><i class="icon-comments"></i>23</a>
+                                        </div><!-- End .instagram-feed-content -->
+                                    </div><!-- End .instagram-feed -->
+                                </div><!-- End .feed-col -->
+                            </div><!-- End .row -->
+                        </div><!-- End .instagra-feed-container -->
+
+                        <div class="row justify-content-center">
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="icon-box icon-box-side">
+                                <span class="icon-box-icon text-dark">
+                                    <i class="icon-rocket"></i>
+                                </span>
+
+                                    <div class="icon-box-content">
+                                        <h3 class="icon-box-title">Payment & Delivery</h3><!-- End .icon-box-title -->
+                                        <p>Free shipping for orders over $50</p>
+                                    </div><!-- End .icon-box-content -->
+                                </div><!-- End .icon-box -->
+                            </div><!-- End .col-sm-6 col-lg-4 -->
+
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="icon-box icon-box-side">
+                                <span class="icon-box-icon text-dark">
+                                    <i class="icon-refresh"></i>
+                                </span>
+
+                                    <div class="icon-box-content">
+                                        <h3 class="icon-box-title">Return & Refund</h3><!-- End .icon-box-title -->
+                                        <p>Free 100% money back guarantee</p>
+                                    </div><!-- End .icon-box-content -->
+                                </div><!-- End .icon-box -->
+                            </div><!-- End .col-sm-6 col-lg-4 -->
+
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="icon-box icon-box-side">
+                                <span class="icon-box-icon text-dark">
+                                    <i class="icon-life-ring"></i>
+                                </span>
+
+                                    <div class="icon-box-content">
+                                        <h3 class="icon-box-title">Quality Support</h3><!-- End .icon-box-title -->
+                                        <p>Alway online feedback 24/7</p>
+                                    </div><!-- End .icon-box-content -->
+                                </div><!-- End .icon-box -->
+                            </div><!-- End .col-sm-6 col-lg-4 -->
+                        </div><!-- End .row -->
+                    </div><!-- End .container -->
+                </div><!-- End .bg-lighter pt-5 pb-5 -->
+                <!-- *********************************************************************** -->
+
+            </main>
+            <!-- *********************************************************************** -->
+
+
+            <!-- Start Footer Section -->
+            <footer class="footer footer-2 mt-5 mb-5">
+                <div class="footer-middle border-0">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="widget widget-about">
+                                    <img src="assets/images/logo-footer.png" class="footer-logo" alt="Footer Logo" width="105" height="25">
+                                    <p>Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus. </p>
+
+                                    <div class="widget-about-info">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-4">
+                                                <span class="widget-about-title">Got Question? Call us 24/7</span>
+                                                <a href="tel:123456789">+0123 456 789</a>
+                                            </div><!-- End .col-sm-6 -->
+                                            <div class="col-sm-6 col-md-8">
+                                                <span class="widget-about-title">Payment Method</span>
+                                                <figure class="footer-payments">
+                                                    <img src="assets/images/payments.png" alt="Payment methods" width="272" height="20">
+                                                </figure><!-- End .footer-payments -->
+                                            </div><!-- End .col-sm-6 -->
+                                        </div><!-- End .row -->
+                                    </div><!-- End .widget-about-info -->
+                                </div><!-- End .widget about-widget -->
+                            </div><!-- End .col-sm-12 col-lg-3 -->
+
+                            <div class="col-sm-4 col-lg-2">
+                                <div class="widget">
+                                    <h4 class="widget-title">Information</h4><!-- End .widget-title -->
+
+                                    <ul class="widget-list">
+                                        <li><a href="#">About US</a></li>
+                                        <li><a href="#">How to shop on Molla</a></li>
+                                        <li><a href="#">FAQ</a></li>
+                                        <li><a href="#">Contact us</a></li>
+                                    </ul><!-- End .widget-list -->
+                                </div><!-- End .widget -->
+                            </div><!-- End .col-sm-4 col-lg-3 -->
+
+                            <div class="col-sm-4 col-lg-2">
+                                <div class="widget">
+                                    <h4 class="widget-title">Customer Service</h4><!-- End .widget-title -->
+
+                                    <ul class="widget-list">
+                                        <li><a href="#">Payment Methods</a></li>
+                                        <li><a href="#">Money-back guarantee!</a></li>
+                                        <li><a href="#">Returns</a></li>
+                                        <li><a href="#">Shipping</a></li>
+                                        <li><a href="#">Terms and conditions</a></li>
+                                        <li><a href="#">Privacy Policy</a></li>
+                                    </ul><!-- End .widget-list -->
+                                </div><!-- End .widget -->
+                            </div><!-- End .col-sm-4 col-lg-3 -->
+
+                            <div class="col-sm-4 col-lg-2">
+                                <div class="widget">
+                                    <h4 class="widget-title">My Account</h4><!-- End .widget-title -->
+
+                                    <ul class="widget-list">
+                                        <li><a href="#">View Cart</a></li>
+                                        <li><a href="#">My Wishlist</a></li>
+                                        <li><a href="#">Track My Order</a></li>
+                                        <li><a href="#">Help</a></li>
+                                    </ul><!-- End .widget-list -->
+                                </div><!-- End .widget -->
+                            </div><!-- End .col-sm-64 col-lg-3 -->
+                        </div><!-- End .row -->
+                    </div><!-- End .container -->
+                </div><!-- End .footer-middle -->
+
+                <div class="footer-bottom">
+                    <div class="container">
+                        <p class="footer-copyright">Copyright © 2019 Molla Store. All Rights Reserved.</p><!-- End .footer-copyright -->
+                        <ul class="footer-menu">
+                            <li><a href="#">Terms Of Use</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul><!-- End .footer-menu -->
+                        <div class="social-icons social-icons-color">
+                            <span class="social-label">Social Media</span>
+                            <a href="#" class="social-icon social-facebook" title="Facebook" target="_blank"><i class="icon-facebook-f"></i></a>
+                            <a href="#" class="social-icon social-twitter" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
+                            <a href="#" class="social-icon social-instagram" title="Instagram" target="_blank"><i class="icon-instagram"></i></a>
+                            <a href="#" class="social-icon social-youtube" title="Youtube" target="_blank"><i class="icon-youtube"></i></a>
+                            <a href="#" class="social-icon social-pinterest" title="Pinterest" target="_blank"><i class="icon-pinterest"></i></a>
+                        </div><!-- End .soial-icons -->
+                    </div><!-- End .container -->
+                </div><!-- End .footer-bottom -->
+            </footer><!-- End .footer -->
+            <!-- *********************************************************************** -->
+
+        </div>
+
+        <script src="/assets/js/jquery.min.js"></script>
+        <script src="/assets/js/bootstrap.bundle.min.js"></script>
+        <script src="/assets/js/jquery.hoverIntent.min.js"></script>
+        <script src="/assets/js/jquery.waypoints.min.js"></script>
+        <script src="/assets/js/superfish.min.js"></script>
+        <script src="/assets/js/owl.carousel.min.js"></script>
+        <script src="/assets/js/jquery.magnific-popup.min.js"></script>
+        <script src="/assets/js/jquery.plugin.min.js"></script>
+        <script src="/assets/js/jquery.countdown.min.js"></script>
+        <script src="/assets/js/main.js"></script>
+        <script src="/assets/js/demos/demo-5.js"></script>
+
+    <%- include('../includes/end.ejs')%>
+

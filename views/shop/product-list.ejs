@@ -1,0 +1,125 @@
+<%- include('../includes/head.ejs')%>
+        <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/css/plugins/owl-carousel/owl.carousel.css">
+        <link rel="stylesheet" href="/assets/css/plugins/magnific-popup/magnific-popup.css">
+        <link rel="stylesheet" href="/assets/css/style.css">
+        <link rel="stylesheet" href="/assets/css/plugins/nouislider/nouislider.css">
+        <link rel="stylesheet" href="/assets/css/main/index.css">
+
+</head>
+
+    <body>
+        <div class="page-wrapper">
+
+            <!-- Start nav -->
+            <% if (isAuthenticated && isAdmin) {%>
+                <%- include('../includes/admin-nav-2.ejs')%>
+            <% } else { %>
+                <%- include('../includes/customer-nav-2.ejs')%>
+            <% } %>
+            <!-- *********************************************************************** -->
+
+
+            <main class="main">
+                <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+                    <div class="container">
+                        <h1 class="page-title"><%= header %><span>Shop</span></h1>
+                    </div>
+                </div>
+                <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
+                    <div class="container">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Products</li>
+                        </ol>
+                    </div>
+                </nav>
+
+                <div class="page-content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="products mb-3">
+                                    <div class="row justify-content-center">
+                                        <% for (let product of products) { %>
+                                        <div class="col-6 col-md-4 col-lg-4 col-xl-3">
+                                            <div class="product product-7 text-center">
+
+
+                                                <figure class="product-media">
+                                                    <a href="/products/<%=product._id%>">
+                                                        <img src="/<%=product.imageURL1%>" alt="Product image" class="product-image">
+                                                        <img src="/<%=product.imageURL2%>" alt="Product image" class="product-image-hover">
+                                                    </a>
+
+                                                    <% if (isAuthenticated && !isAdmin) {%>
+
+                                                    <!-- Add to wishlist -->
+                                                    <div class="product-action-vertical">
+                                                        <a href="/" class="btn-product-icon btn-wishlist btn-expandable" title="Add to wishlist"><span>add to wishlist</span></a>
+                                                    </div>
+
+                                                    <!-- Add to cart -->
+                                                    <form action="/cart" class="product-action product-action-transparent" method="POST">
+                                                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                                        <input type="hidden" name="productId" value="<%= product._id %>">
+                                                            <button class="btn-product btn-cart" type="submit">
+                                                                <span>Add to Cart</span>
+                                                            </button>
+                                                    </form>
+
+                                                    <% } %>
+
+                                                </figure>
+
+                                                <div class="product-body">
+                                                    <div class="product-cat">
+                                                        <form action="/products-category" method="post">
+                                                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                                            <input type="hidden" name="category" value="<%=product.category%>">
+                                                            <button type="submit" style="border: none; background: none">
+                                                                <a style="color: #777777"><%=product.category%></a>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                    <h3 class="product-title">
+                                                        <a href="/products/<%= product._id %>"><%=product.title%></a></h3>
+                                                    <div class="product-price">
+                                                        $<%=product.price%>
+                                                    </div>
+
+                                                    <div class="product-nav product-nav-dots">
+                                                        <a href="/" class="active" style="background: #2d272b;"><span class="sr-only">Color name</span></a>
+                                                        <a href="/" style="background: #8f957d;"><span class="sr-only">Color name</span></a>
+                                                    </div><!-- End .product-nav -->
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- End .row -->
+                    </div><!-- End .container -->
+                </div><!-- End .page-content -->
+            </main><!-- End .main -->
+
+            <!-- *********************************************************************** -->
+
+        </div>
+
+        <script src="/assets/js/jquery.min.js"></script>
+        <script src="/assets/js/bootstrap.bundle.min.js"></script>
+        <script src="/assets/js/jquery.hoverIntent.min.js"></script>
+        <script src="/assets/js/jquery.waypoints.min.js"></script>
+        <script src="/assets/js/superfish.min.js"></script>
+        <script src="/assets/js/owl.carousel.min.js"></script>
+        <script src="/assets/js/bootstrap-input-spinner.js"></script>
+        <script src="/assets/js/jquery.elevateZoom.min.js"></script>
+        <script src="/assets/js/bootstrap-input-spinner.js"></script>
+        <script src="/assets/js/jquery.magnific-popup.min.js"></script>
+        <script src="/assets/js/main.js"></script>
+        <script src="assets/js/demos/demo-18.js"></script>
+
+<%- include('../includes/end.ejs')%>
