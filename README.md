@@ -1,6 +1,4 @@
 # Molla E-commerce
 
 ## Project
-```
-npm install
-```
+project build by node.js and ejs 
